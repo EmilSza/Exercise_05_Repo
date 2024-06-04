@@ -48,17 +48,30 @@ def mergeSort(list_to_sort):
             sorted_index += 1
 
 
+# Erstelle eine Liste von Zahlen
 my_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-# Erstelle eine Liste von Indizes für die x-Achse
+# Erstelle eine Liste von Indizes
 x = range(len(my_list))
 
-# Zeichne die ursprüngliche Liste
-plt.plot(x, my_list)
-plt.show()
+# Erstelle einen neuen Plot mit zwei Subplots
+fig, axs = plt.subplots(2)
+
+# Zeichne die ursprüngliche Liste als Balkendiagramm und füge Titel und Achsenbeschriftungen hinzu
+axs[0].bar(x, my_list)
+axs[0].set_title('Ursprüngliche Liste')
+axs[0].set_xlabel('Index')
+axs[0].set_ylabel('Wert')
+#axs[0].grid(True)
 
 # Sortiere die Liste
 mergeSort(my_list)
 
-# Zeichne die sortierte Liste
-plt.plot(x, my_list)
+# Zeichne die sortierte Liste als Balkendiagramm und füge Titel und Achsenbeschriftungen hinzu
+axs[1].bar(x, my_list)
+axs[1].set_title('Sortierte Liste')
+axs[1].set_xlabel('Index')
+axs[1].set_ylabel('Wert')
+#axs[1].grid(True)
+
+plt.tight_layout()
 plt.show()
